@@ -7,16 +7,27 @@
 \usepackage{color}   % For colored text
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{hyperref} %create clickable links within your document,
+\pagenumbering{gobble}
+\usepackage{cite} % for refernces
+
+
+
 
 \usepackage{abstract}
+\providecommand{\keywords}[1]
+{
+	\small	
+	\textbf{\textit{Keywords---}} #1
+}
 
 
 
-\title{Review and Analysis of Instrumentation Ampliﬁer for Biomedical  Applications}
+\title{Review and Analysis of Instrumentation Amplifier for Biomedical  Applications}
 		
 \author{JOYDEEP NATH}
 
-\affil{Department of ECE, Assam University,\\City- Silchar, Dist-Cachar, State - Assam, India}
+\affil{Department of Electronics and Communication Engineering(ECE),Assam University,\\Silchar,Cachar,Assam,India}
 
 \begin{document}
 
@@ -27,14 +38,14 @@
 \begin{abstract}
 	
 		Instrumentation amplifiers(in-amp)are used in many applications,
-		from motor control to data acquisition to automotive.They also play a crucial	role in biomedical applications as Bio-medical sensors detect very weak signals like Electrocardiogram (ECG), Electromyogram (EMG), Electroencephalogram (EEG) and Action potential of neurons which are on the orders of the 0.1-10mV and frequency up to 10kHz.
+		from motor control to data acquisition to automotive.They also play a crucial role in biomedical applications as Bio-medical sensors detect feeble signals like Electrocardiogram (ECG), Electromyogram (EMG), Electroencephalogram (EEG) and Action potential of neurons which are on the orders of the 0.1-10mV and frequency up to 10kHz.
 		To process these sensitive signals, the bio-medical device should have low noise, low offset and susceptible to 50Hz power line and other common mode disturbances.
 		
-	    Particularly in the context of wearable and implantable devices integrating instrumentation amplifiers(IA) with complementary metal-oxide-semiconductor (CMOS) technology for its various advantages such as scaling. Despite significant progress, challenges remain in balancing noise reduction, power optimization, and size constraints	
-		
-		This paper presents a comprehensive review of 20 recent research studies on the design, development and advancements in IA architectures using different typologies,though trade-offs between power consumption, accuracy, Noise Efficiency Factor(NEF) and area utilization.
+	   Particularly in the context of wearable and implantable devices, instrumentation amplifiers (IAs) based on complementary metal-oxide-semiconductor (CMOS) technology are widely utilized due to their advantages, including scalability. Despite significant advancements, challenges persist in achieving an optimal balance between noise reduction, power efficiency, and size constraints.
+	  
+		This paper presents a comprehensive review of recent (2012–2024) research studies on the design, development, and advancements in instrumentation amplifier (IA) architectures employing various topologies. It highlights the trade-offs among power consumption, accuracy, Noise Efficiency Factor (NEF), and area utilization.
 
-
+\keywords{one, two, three, four}
 \end{abstract}
 \vspace{4cm}
 
@@ -42,25 +53,114 @@
 
 \section{INTRODUCTION}
 
-		An instrumentation amplifier(IA) is a closed-loop gain block that has a differential input and an output that is single-ended with respect to a reference terminal. Unlike an OP-AMP, for which closed-loop gain is determined
-		by external resistors connected between its
-		inverting input and its output, an IA employs an
-		internal feedback resistor network that is isolated from its
-		signal input terminals. With the input signal applied across
+		An instrumentation amplifier(IA) is a closed-loop gain block that has a differential input and an output that is single-ended with respect to a reference terminal. Unlike an OP-AMP, for which closed-loop gain is determined by external resistors connected between its
+		inverting input and its output, an IA employs an internal feedback resistor network that is isolated from its signal input terminals. With the input signal applied across
 		the two differential inputs, gain is either preset internally
 		or is user set (via pins) by an internal or external gain
-		resistor, which is also isolated from the signal inputs.
-
-
+		resistor, which is also isolated from the signal inputs.\\
+		\vspace{.1cm}\cite{kitchin2006}.\\
+	   {{In general, the instrumentation amplifier is designed to achieve the following:}}\cite{sciencedirect}
+		\begin{itemize}
+			\item Low Noise
+			\item High and Stable Gain	
+			\item Simple Gain Selection	
+			\item Low Non-linearity
+			\item Low Output Impedance 
+			\item High Input Impedance 
+			\item High Common-mode Rejection(CMRR)
+			\item Adequate Bandwidth for small-signal
+			\item Offset voltages and drifts are minimized.
+			\item Low Input Bias and Offset Current Errors
+			
+		\end{itemize}
+	
+		Figure 1 shows a typical IA configuration consisting of three OP-AMP's.\\All the resistors except $R_3$ are equal and  should have high-precision (0.1\% tolerance or better) to achieve the highest CMRR possible. \\
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=5cm, height=5cm]{IA_DIAGRAM}
-	\caption[Figure 1: Instrumentation amplifier]{}
+	\caption[Figure 1: ]{Instrumentation amplifier}
 	\label{fig:IA-CIRCUIT-DIAGRAM}
 \end{figure}
+	The $1^{st}$ stage of the IA consists of two op-amps and acts an input buffer for the $2^{nd}$ stage, which is a Differential Amplifer with one output.
+	\begin{center}The overall gain of this IA circuit is $\frac{R_4}{R_2}\left[1 + \frac{2R_1}{R_3}\right]$.\\\end{center}
+	
+	Both the inputs are connected directly to the non-inverting inputs of their respective op-amps in the $1^{st}$ stage. As the non-inverting input of an op-amp has a very high input impedance due to the nature of the op-amp's internal circuitry, this impedance is high, often in the range of megaohms to gigaohms, depending on the type of op-amp.
+	
+	(e.g., 1 k$\Omega$ source imbalance, at 60 Hz).\\
+	\vspace{.10cm}The term CMR is a logarithmic expression of the 
+	common-mode rejection ratio(CMRR).\\ That is, CMR = 
+	20 $log_{10}$ CMRR
 
 
+
+\section{LITERATURE SURVEY}
+
+		Biomedical signals  are used primarily for extracting information on a biological system under investigation. The process of extracting information could be as simple as measuring the pulse of a person on the wrist or as complex as analyzing the activity of brain neurons.
+		
+		The primary purpose of medical instrumentation is to measure or determine the presence of some physical quantity that may, in some way, assist the medical personnel to make better diagnosis and treatment.\\
+		
+		•	\textbf{Measurement Range}:  Generally the measurement ranges are quite low compared with non-medical parameters. Most signals are in the microvolt to millivolt range.\\
+		
+	For \textit{accurate measurement of voltage}, it is necessary to arrange that the input impedance of the measuring device must be large compared with the output impedance of the signal source. This is to minimize the error that would occur, if an appreciable fraction of the signal source were dropped across the source impedance. Conversely, \textit{accurate measurement of current source signals} necessitates that the source output impedance be large compared with the receiver input impedance. Ideally, a receiver that exhibits a zero input impedance would not cause any perturbation of the current source. Therefore, high-impedance current sources are more easily handled than low-impedance current sources.\\
+		
+		•	\textbf{Frequency Range}: Most of the bio-medical signals are in the audio frequency range or below and that many signals contain dc and very low frequency components.\\
+		
+		The frequency response of the system should be compatible with the operating range of the signal being measured. To process the signal waveform without distortion, the bandpass of the system must encompass all of the frequency components of the signal that contribute significantly to signal strength. The range can be determined quantitatively by obtaining a Fourier analysis of the signal.The bandpass of an electronic instrument is usually defined as the range between the upper and lower half-power frequencies
+		
+		The electrical signals are invariably accompanied by components that are unrelated to the phenomenon being studied. Spurious signal components, which may occur at any frequency within the band pass of the system are known as noise.
+		The instruments must be designed in such a way that the noise is minimised to facilitate accurate and sensitive measurement. For extraction of information from noisy signals, it is essential to enhance signal-to-noise(SNR) ratio, for which several techniques have been put in practice. The simplest method is that of bandwidth reduction, although many sophisticated methods have been developed to achieve noise reduction from the noisy bio-medical signals. \cite{khandpur2014}
+		
+		The Instrumentation Amplifier(IA) provides impedance buffering, signal gain and common mode rejection conditions to the selected input signal to a suitable level for application to the ADC.\\
+		
+		Power vs. Bandwidth, Slew Rate, and Noise :\\
+		
+			As a general rule, the higher the operating current of the IA's input section, the greater the bandwidth 
+			and slew rate and the lower the noise. But higher operating 
+			current means higher power dissipation and heat. Hence IC designers often must trade off some specifications to keep power dissipation and drift to acceptable levels
+		
+\section{DISCUSSION AND ANALYSIS}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	REFERENCES & METHODOLOGY & CMRR (dB) & BANDWITDH(BW) & POWER CONSUMPTION & INPUT REFERRED NOISE &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+	&  &  &  &  &  &  &  &  &  \\
+	\hline
+\end{tabular}
+
+\section{CONCLUSION}
+
+
+
+
+
+
+%BIBILOGRAPHY%
+	
+\bibliographystyle{ieeetr}
+\bibliography{references}	
+
+	
+
+	
 
 
 \end{document}
+
