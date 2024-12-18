@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{authblk} % Package for author affiliations
+\usepackage{mathptmx} % Times New Roman text and math mode
+\usepackage{color}   % For colored text
+\usepackage{adjustbox}
+ \usepackage{amsmath}
+\usepackage{multirow} % Required for merging rows
+\usepackage{array} % For better alignment if needed
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref} %create clickable links within your document,
+\pagenumbering{gobble}
+\usepackage{cite} % for refernces
+
+
+\begin{document}
+
+\section*{CMOS Technology Table}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\adjustbox{max width=\textwidth}{
+
+\end{document}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|} 
+\hline
+\textbf{CMOS TECH} & \textbf{\begin{tabular}[c]{@{}c@{}}Supply \\ Voltage (V)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Gain \\ (dB)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Bandwidth \\ (Hz)\end{tabular}} & \textbf{CMRR} & \textbf{PSRR} & \textbf{NEF} & \textbf{\begin{tabular}[c]{@{}c@{}}INR \\ Vrms\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Area \\ (mm\textsuperscript{2})\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Power Dissipation \\ ($\mu$W)\end{tabular}} \\ 
+\hline
+180nm       & 0.9   & 101.61 & 20 -777.5k & 147 & {\begin{tabular}[c]{@{}c@{}}148(+)\\ 154(-)\end{tabular}} & -    & -     & -     & 38.8   \\ 
+\hline
+TSMC 90nm   & 0.4   & 50     & 14kHz     & 76     & 56   & -    & 3.71  & 0.023 & 11     \\ 
+\hline
+180nm       & 1     & 35-70  &  800-1400 & 106 & 119 & 0.64 & 0.72 & 0.0625 & 1.85 \\ 
+\hline
+180nm       & 1.8   & 39.8dB & 6.2kHz    & 105    & -      & 2.24 & -     & -     & 7.79   \\ 
+\hline
+65nm        & 1.5   & 82     & 145kHz    & 110    & -      & -    & -     & 0.00325$\mu$m\textsuperscript{2} & 6.57$\mu$W \\ 
+\hline
+
+\multirow{1}{*}[-7pt]{\centering TSMC 180nm }  & 1.8   & 39.76  & 11.6kHz   & 80     & -      & 3.18 & 3.44        & -     & 25.92  \\ 
+                                         & 1   & 39.3   & 5kHz        & 110    & -      & 2.74 & 1.83$\mu$V  & -     & 2.09   \\ 
+\hline
+1P6M 65nm & 1     & 52.1   & 1-8.200Hz   & {\begin{tabular}[c]{@{}c@{}}90 @100Hz \\ 80 @1kHz \end{tabular}}& 78 & 3.19 & 4.13 & 0.042 & 118$\mu$W \\ 
+\hline
+
+{\begin{tabular}[c]{@{}c@{}} BCD 1P6M \\0.18$\mu$m\end{tabular}}& 1.5 & 39.9-59.8 & 1-10kHz & 105 & - & {\begin{tabular}[c]{@{}c@{}}4.05 @1kHz \\ 4.15 @10kHz\end{tabular}} & \begin{tabular}[c]{@{}c@{}}53.9 @11kHz \\ 55.4 @10kHz \\ nV/$\sqrt{\text{Hz}}$
+\end{tabular} & - & 3.8$\mu$W \\ 
+\hline
+
+\multirow{1}{*}[-7pt]{\centering 0.5$\mu$m }  & \multirow{1}{*}[-7pt]{\centering 1.5 }   & 56.48 & 1.45 kHz   & $>$ 110     & $>$ 100   & 6.5  & 6.44  & -     & 3$\mu$W  \\ 
+                                              &                                          & 48.69 & 2.71 Khz   & $>$ 90      & $>$  89   & 4.3  & 4.13  & -     & 6$\mu$W  \\ 
+\hline
+
+180nm        & 1.8   & 30 - 40 & 0.05-11Khz  & 84     & 89.3   & 1.92  & 1.34 & 0.03     & 32.94$\mu$W \\ 
+\hline
+65nm         & 0.4   & 24     & 11kHz     & 83     & -      & -    & -     & 0.00767mm\textsuperscript{2} & 0.089  \\ 
+\hline
+SCL 180nm    & 0.6   & 61     & 4.1kHz    & -      & -      & -    & 31.5  & -     & 0.086   \\ 
+\hline
+180          & 1.8 & 34.5 & 1.7-352Hz & 174 & 80 & 2.99 & 3.69 & - & 4.5-19.4 \\ 
+\hline
+350nm        & 3     & 40     & 550MHz-300Hz & $>$80    & 41     & -    & 7.4   & -     & 20.2   \\ 
+\hline
+180          & 1.2   & 47     & 1.2MHz    & 98     & 109    & 89n  & -     & -     & 317    \\ 
+\hline
+TSMC 180     & 1     & 96.41  & 400kHz    & 60     & 153.71 & 610  & -     & -     & 53.72  \\ 
+\hline
+180          & 1.8   & 79.16  & 9MHz gain BW & 98     & -      & 9.65 & -     & -     & 409.14 \\ 
+\hline
+TSMC 90      & 0.4   & 41     & 13.5kHz   & 107    & 74.5   & 3.59 & -     & 0.023 & 5.5    \\ 
+\hline
+TSMC 180     & 0.4   & 28-40  & 2.1 Gain BW & 82     & 60     & -    & -     & 0.064 & 927nW \\ 
+\hline
+UMC 180nm    & 0.8   & 43     & 1kHz      & 71  & -      & -    & -     & -     & 371    \\ 
+\hline
+Samsung 130nm & 1    & 55     & 1.1kHz    & 125    & -      & 3.8  & 6.5   & -     & 2.3$\mu$W \\ 
+\hline
+\end{tabular}
+}
+\caption{CMOS technology comparison table.}
+\label{tab:cmos_table}
+\end{table}
